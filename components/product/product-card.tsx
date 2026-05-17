@@ -1,10 +1,9 @@
-// components/product/product-card.tsx
-
 import Image from "next/image"
 import Link from "next/link"
-import { Heart } from "lucide-react"
+import { Flame, Heart } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { Progress } from "@/components/ui/progress"
 import { formatCurrency } from "@/lib/utils"
 
 type ProductCardProps = {
@@ -14,6 +13,10 @@ type ProductCardProps = {
   price: number
   oldPrice?: number
   left?: number
+  badge?: string
+
+  sold?: number
+  stock?: number
 }
 
 export function ProductCard({
@@ -23,7 +26,12 @@ export function ProductCard({
   price,
   oldPrice,
   left,
+  badge,
+  sold,
+  stock,
 }: ProductCardProps) {
+  const soldPercentage = sold && stock ? (sold / stock) * 100 : 0
+
   return (
     <Link
       href={`/products/${id}`}
@@ -31,6 +39,16 @@ export function ProductCard({
     >
       {/* IMAGE */}
       <div className="relative overflow-hidden rounded-3xl bg-primary/10 p-6">
+        {/* BADGE */}
+        {badge && (
+          <div className="absolute left-3 top-3 z-10 flex items-center gap-1 rounded-full bg-red-500 px-3 py-1 text-xs font-medium text-white">
+            <Flame className="h-3 w-3" />
+
+            {badge}
+          </div>
+        )}
+
+        {/* WISHLIST */}
         <Button
           size="icon"
           variant="secondary"
@@ -63,23 +81,42 @@ export function ProductCard({
           )}
         </div>
 
-        <div className="mt-1 flex items-center gap-2">
+        <div className="mt-1">
           <span className="text-2xl font-bold">
             {formatCurrency(price)}
           </span>
         </div>
 
-        <div className="mt-2 flex items-center gap-3 text-sm">
-          {left && (
+        {/* STOCK */}
+        {left && (
+          <div className="mt-2 flex items-center gap-3 text-sm">
             <span className="font-medium text-primary">
               {left} Left
             </span>
-          )}
 
-          <span className="text-muted-foreground">
-            In Stock
-          </span>
-        </div>
+            <span className="text-muted-foreground">
+              In Stock
+            </span>
+          </div>
+        )}
+
+        {/* SOLD */}
+        {typeof sold === "number" &&
+          typeof stock === "number" && (
+            <div className="mt-4">
+              <div className="mb-2 flex items-center justify-between text-sm">
+                <span className="text-muted-foreground">
+                  Sold
+                </span>
+
+                <span className="font-medium">
+                  {sold} / {stock}
+                </span>
+              </div>
+
+              <Progress value={soldPercentage} />
+            </div>
+          )}
       </div>
     </Link>
   )
