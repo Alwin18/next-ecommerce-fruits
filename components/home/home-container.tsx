@@ -5,6 +5,7 @@ import { ProductSection } from '../product/product-section'
 import { FlashSaleSection } from '../promo/flash-sale-section'
 import { CuratedSection } from '../curated/curated-section'
 import { SectionDivider } from '../section-divider'
+import { TestimonialSection } from '../testimonial/testimonial-section'
 
 export default function HomeContainer() {
   return (
@@ -16,6 +17,7 @@ export default function HomeContainer() {
       <ProductSection />
       <SectionDivider label='Rekomendasi Produk' />
       <CuratedSection />
+      <TestimonialSection />
     </>
   )
 }
