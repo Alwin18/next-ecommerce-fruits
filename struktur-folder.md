@@ -89,10 +89,14 @@ src/
 │   │   └── forgot-password-form/
 │   │
 │   ├── home/
-│   │   ├── hero/
-│   │   ├── categories/
-│   │   ├── featured-products/
-│   │   └── banners/
+│   │   ├── hero.tsx
+│   │   ├── categories.tsx
+│   │   ├── featured-products.tsx
+│   │   ├── promo-banner.tsx
+│   │   ├── flash-sale.tsx
+│   │   ├── brand-list.tsx
+│   │   ├── newsletter.tsx
+│   │   └── home-container.tsx
 │   │
 │   ├── product/
 │   │   ├── product-card/

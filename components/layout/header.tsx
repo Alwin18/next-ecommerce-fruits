@@ -10,7 +10,7 @@ import Image from "next/image"
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
-      <div className="container mx-auto flex h-16 items-center justify-between gap-4 px-4">
+      <div className="w-full px-[80px] flex h-16 items-center justify-between gap-4">
         {/* LEFT */}
         <div className="flex items-center gap-3">
           {/* MOBILE MENU */}
@@ -84,15 +84,14 @@ export function Header() {
           </Button>
 
           {/* ACCOUNT */}
-          <Button
-            variant="ghost"
-            size="icon"
-            asChild
-          >
-            <Link href="/profile">
-              <User className="h-5 w-5" />
-            </Link>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" className="rounded-full" size="sm" asChild>
+              <Link href="/login">
+                <User className="h-5 w-5" />
+                <span>Login</span>
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </header>
