@@ -1,9 +1,6 @@
-// components/home/categories.tsx
-
 "use client"
 
 import { Grape } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 
 const CATEGORIES = [
