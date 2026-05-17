@@ -1,5 +1,18 @@
+// components/promo/flash-sale-section.tsx
+
+"use client"
+
+import Autoplay from "embla-carousel-autoplay"
+
 import { ProductCard } from "@/components/product/product-card"
+
 import { FlashSaleCountdown } from "./flash-sale-countdown"
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
 
 const PRODUCTS = [
   {
@@ -47,7 +60,39 @@ const PRODUCTS = [
     sold: 12,
     stock: 100,
   },
+  {
+    id: 6,
+    name: "Fresh Lemon",
+    image: "/buah/2.png",
+    price: 89000,
+    oldPrice: 110000,
+    sold: 20,
+    stock: 100,
+  },
+   {
+    id: 7,
+    name: "Fresh Jeruk Nipis",
+    image: "/buah/2.png",
+    price: 150000,
+    oldPrice: 271000,
+    sold: 12,
+    stock: 100,
+  },
+  {
+    id: 8,
+    name: "Fresh Jeruk",
+    image: "/buah/3.png",
+    price: 99000,
+    oldPrice: 140000,
+    sold: 12,
+    stock: 100,
+  },
 ]
+
+const autoplay = Autoplay({
+  delay: 3000,
+  stopOnInteraction: false,
+})
 
 export function FlashSaleSection() {
   return (
@@ -68,16 +113,29 @@ export function FlashSaleSection() {
           <FlashSaleCountdown />
         </div>
 
-        {/* PRODUCTS */}
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-          {PRODUCTS.map((product) => (
-            <ProductCard
-              key={product.id}
-              {...product}
-              badge="Flash Sale"
-            />
-          ))}
-        </div>
+        {/* CAROUSEL */}
+        <Carousel
+          plugins={[autoplay]}
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full"
+        >
+          <CarouselContent>
+            {PRODUCTS.map((product) => (
+              <CarouselItem
+                key={product.id}
+                className="basis-[75%] sm:basis-[50%] md:basis-[40%] lg:basis-[25%] xl:basis-[20%]"
+              >
+                <ProductCard
+                  {...product}
+                  badge="Flash Sale"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   )
