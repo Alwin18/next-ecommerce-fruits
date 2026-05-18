@@ -73,9 +73,9 @@ const CATEGORIES = [
 
 export default function Categories() {
   return (
-    <section className="w-full py-4">
+    <section className="w-full overflow-hidden py-4">
       <div className="flex w-full ">
-        <div className="scrollbar-hide flex gap-3 overflow-x-auto scroll-smooth">
+        <div className="scrollbar-hide flex w-full gap-3 overflow-x-auto scroll-smooth">
           {CATEGORIES.map((category) => (
             <Link
               key={category.id}
