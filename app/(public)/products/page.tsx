@@ -1,32 +1,15 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import Autoplay from "embla-carousel-autoplay"
-
 import { ProductCard } from "@/components/product/product-card"
-
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel"
-
 import { Switch } from "@/components/ui/switch"
 import Categories from "@/components/home/categories"
-
-const CATEGORY_LIST = [
-  "Bread",
-  "Cheese",
-  "Alcohol",
-  "Yogurt",
-  "Dairy & Eggs",
-  "Watermelon",
-  "Snacks",
-  "Cake",
-  "Candy",
-  "Vegetables",
-]
 
 const CHEESE_PRODUCTS = [
   {
