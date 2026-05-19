@@ -1,5 +1,3 @@
-// components/product/product-gallery.tsx
-
 "use client"
 
 import Image from "next/image"
@@ -12,19 +10,18 @@ const IMAGES = [
 ]
 
 export function ProductGallery() {
-  const [selectedImage, setSelectedImage] =
-    useState(IMAGES[0])
+  const [selectedImage, setSelectedImage] = useState(IMAGES[0])
 
   return (
     <div>
       {/* MAIN IMAGE */}
       <div className="w-full overflow-hidden rounded-[32px] border bg-muted">
-        <div className="relative aspect-square w-full">
+        <div className="relative aspect-3/2 w-full">
           <Image
             src={selectedImage}
             alt="Product"
             fill
-            className="object-contain p-10"
+            className="object-contain p-6"
           />
         </div>
       </div>
@@ -35,11 +32,10 @@ export function ProductGallery() {
           <button
             key={image}
             onClick={() => setSelectedImage(image)}
-            className={`overflow-hidden rounded-2xl border p-2 transition-all ${
-              selectedImage === image
-                ? "border-primary"
-                : "border-transparent"
-            }`}
+            className={`overflow-hidden rounded-2xl border p-2 transition-all ${selectedImage === image
+              ? "border-primary"
+              : "border-transparent"
+              }`}
           >
             <div className="relative h-20 w-20">
               <Image

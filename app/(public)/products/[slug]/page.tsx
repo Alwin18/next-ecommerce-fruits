@@ -42,7 +42,7 @@ const RELATED_PRODUCTS = [
   {
     id: 5,
     name: "Banana",
-    image: "/buah/5.png",
+    image: "/buah/4.png",
     price: 99.99,
     oldPrice: 120,
     left: 12,

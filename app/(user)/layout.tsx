@@ -1,5 +1,6 @@
 import type { ReactNode } from "react"
 import { Header } from "@/components/layout/header"
+import { Footer } from "@/components/layout/footer"
 
 export default function UserLayout({
   children,
@@ -13,6 +14,8 @@ export default function UserLayout({
       <main>
         {children}
       </main>
+
+      <Footer />
     </div>
   )
 }
